@@ -1,0 +1,101 @@
+<!DOCTYPE html>  
+<html lang="vi">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Bảng Thông Tin</title>  
+    <style>  
+        table {  
+            width: 100%;  
+            border-collapse: collapse;  
+            margin-bottom: 20px;  
+        }  
+
+        th, td {  
+            border: 1px solid #ddd;  
+            padding: 8px;  
+            text-align: left;  
+        }  
+
+        th {  
+            background-color: #f2f2f2;  
+        }  
+
+        .actions {  
+            white-space: nowrap;  
+        }  
+
+        .actions button {  
+            padding: 5px 10px;  
+            margin: 2px;  
+            border: 1px solid #ccc;  
+            background-color: #eee;  
+            cursor: pointer;  
+        }  
+    </style>  
+</head>  
+<body>  
+
+    <table>  
+        <thead>  
+            <tr>  
+                <th>STT</th>  
+                <th>Tên</th>  
+                <th>Tuổi</th>  
+                <th>Email</th>  
+                <th>Trạng Thái</th>  
+                <th>Hành Động</th>  
+            </tr>  
+        </thead>  
+        <tbody>  
+            <tr>  
+                <td>1</td>  
+                <td>Nguyễn Văn A</td>  
+                <td>18</td>  
+                <td>NguyenVanA@gmail.com</td>  
+                <td>Hoạt động</td>  
+                <td class="actions">  
+                    <button>Sửa</button>  
+                    <button>Xóa</button>  
+                </td>  
+            </tr>  
+            <tr>  
+                <td>2</td>  
+                <td>Trần Văn B</td>  
+                <td>23</td>  
+                <td>TranVanB@gmail.com</td>  
+                <td>Hoạt động</td>  
+                <td class="actions">  
+                    <button>Sửa</button>  
+                    <button>Xóa</button>  
+                </td>  
+            </tr>  
+            <tr>  
+                <td>3</td>  
+                <td>Phạm Thị C</td>  
+                <td>19</td>  
+                <td>PhamThiC@gmail.com</td>  
+                <td>Hoạt động</td>  
+                <td class="actions">  
+                    <button>Sửa</button>  
+                    <button>Xóa</button>  
+                </td>  
+            </tr>  
+            <tr>  
+                <td>4</td>  
+                <td>Phan Văn D</td>  
+                <td>20</td>  
+                <td>PhanVanD@gmail.com</td>  
+                <td>Không hoạt động</td>  
+                <td class="actions">  
+                    <button>Sửa</button>  
+                    <button>Xóa</button>  
+                </td>  
+            </tr>  
+        </tbody>  
+    </table>  
+
+    <button style="float: right;">Xóa Tất Cả</button>  
+
+</body>  
+</html>  
