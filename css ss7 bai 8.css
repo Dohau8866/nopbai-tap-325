@@ -1,0 +1,75 @@
+body {  
+    font-family: Arial, sans-serif;  
+    margin: 0;  
+    padding: 0;  
+    background-color: #e0e0e0;  
+    color: #333;  
+}  
+
+header {  
+    background-color: #333;  
+    color: white;  
+    padding: 20px;  
+    text-align: center;  
+}  
+
+nav ul {  
+    list-style: none;  
+    padding: 0;  
+}  
+
+nav ul li {  
+    display: inline;  
+    margin: 0 15px;  
+}  
+
+nav a {  
+    color: white;  
+    text-decoration: none;  
+}  
+
+.welcome {  
+    text-align: center;  
+    margin: 50px 0;  
+}  
+
+.view-portfolio {  
+    display: inline-block;  
+    padding: 10px 20px;  
+    background-color: #555;  
+    color: white;  
+    text-decoration: none;  
+    border-radius: 5px;  
+}  
+
+.featured-work {  
+    text-align: center;  
+    margin: 50px 0;  
+}  
+
+.projects {  
+    display: flex;  
+    justify-content: space-between;  
+}  
+
+.project {  
+    width: 150px;  
+    height: 150px;  
+    background-color: #ccc;  
+    margin: 0 10px;  
+    display: flex;  
+    align-items: center;  
+    justify-content: center;  
+}  
+
+.about-me {  
+    text-align: center;  
+    margin: 50px 0;  
+}  
+
+footer {  
+    text-align: center;  
+    padding: 20px;  
+    background-color: #333;  
+    color: white;  
+}  
