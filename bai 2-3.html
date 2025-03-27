@@ -3,99 +3,77 @@
 <head>  
     <meta charset="UTF-8">  
     <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-    <title>Bảng Thông Tin</title>  
-    <style>  
-        table {  
-            width: 100%;  
-            border-collapse: collapse;  
-            margin-bottom: 20px;  
-        }  
-
-        th, td {  
-            border: 1px solid #ddd;  
-            padding: 8px;  
-            text-align: left;  
-        }  
-
-        th {  
-            background-color: #f2f2f2;  
-        }  
-
-        .actions {  
-            white-space: nowrap;  
-        }  
-
-        .actions button {  
-            padding: 5px 10px;  
-            margin: 2px;  
-            border: 1px solid #ccc;  
-            background-color: #eee;  
-            cursor: pointer;  
-        }  
-    </style>  
+    <title>Trang web bán hàng
+    </title>  
 </head>  
 <body>  
+    <h1>trang web bán hàng</h1>
+<nav>
+    <ul>
+        <li><a href="#">trang chủ</a></li>
+        <li><a href="#">Sản phẩm</a></li>
+        <li><a href="#">Giới thiệu</a></li>
+        <li><a href="#">Liên hệ</a></li>
+    </ul>
+</nav>
+<section>
+    <h2>Thông tin sản phẩm</h2>
+    <thead>
+        
+        <tr>
+            <th>Tên sản phẩm</th>
+            <th>Mô tả</th>
+            <th>Giá</th>
+            <th>Số lượng</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Sản phẩm1</td>
+            <td>Mô tả sản phẩm1</td>
+            <td>1000.000đ</td>
+            <td>10</td>
+        </tr>
+        <tr>
+            <td>Sản phẩm 2</td>
+            <td>Mô tả sản phẩm 2</td>
+            <td>200.000đ</td>
+            <td>5</td>    
+        </tr>
+           <td>Sản phẩm 3</td>
+           <td>Mô tả sản phẩm 3</td>
+           <td>300.000đ</td>
+           <td>3</td>
+         </tr>
+     </tbody>
+ </table>
+</section>
 
-    <table>  
-        <thead>  
-            <tr>  
-                <th>STT</th>  
-                <th>Tên</th>  
-                <th>Tuổi</th>  
-                <th>Email</th>  
-                <th>Trạng Thái</th>  
-                <th>Hành Động</th>  
-            </tr>  
-        </thead>  
-        <tbody>  
-            <tr>  
-                <td>1</td>  
-                <td>Nguyễn Văn A</td>  
-                <td>18</td>  
-                <td>NguyenVanA@gmail.com</td>  
-                <td>Hoạt động</td>  
-                <td class="actions">  
-                    <button>Sửa</button>  
-                    <button>Xóa</button>  
-                </td>  
-            </tr>  
-            <tr>  
-                <td>2</td>  
-                <td>Trần Văn B</td>  
-                <td>23</td>  
-                <td>TranVanB@gmail.com</td>  
-                <td>Hoạt động</td>  
-                <td class="actions">  
-                    <button>Sửa</button>  
-                    <button>Xóa</button>  
-                </td>  
-            </tr>  
-            <tr>  
-                <td>3</td>  
-                <td>Phạm Thị C</td>  
-                <td>19</td>  
-                <td>PhamThiC@gmail.com</td>  
-                <td>Hoạt động</td>  
-                <td class="actions">  
-                    <button>Sửa</button>  
-                    <button>Xóa</button>  
-                </td>  
-            </tr>  
-            <tr>  
-                <td>4</td>  
-                <td>Phan Văn D</td>  
-                <td>20</td>  
-                <td>PhanVanD@gmail.com</td>  
-                <td>Không hoạt động</td>  
-                <td class="actions">  
-                    <button>Sửa</button>  
-                    <button>Xóa</button>  
-                </td>  
-            </tr>  
-        </tbody>  
-    </table>  
 
-    <button style="float: right;">Xóa Tất Cả</button>  
+    <h2>Thông tin người dùng</h2>
+    <section
+    <form>
+        <label for-name>Họ và tên:</label>
+        <inputtype-"text" id="name" nam="name"><br>
+        
+        <lable for="email">Email:</label><br>
+         <input type="email" name="email"><br>
+
+         <label for="phone">Số điện thoại:</label><br>
+         <input type="text"=tel id="phone" name=""phone"><br>
+
+         <label for="address">Địa chỉ:</label><br>
+         <input type="text"id=address" name="address"><br>
+
+         <input type="submit" value="Đặt hàng">
+         
+    </form>
+</section>
+
+<footer>
+    &copy;2023 Trang web bán hàng
+
+</footer>
 
 </body>  
 </html>  
