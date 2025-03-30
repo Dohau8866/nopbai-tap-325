@@ -1,0 +1,49 @@
+<!DOCTYPE html>  
+<html lang="vi">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>20 Số Nguyên Tố Đầu Tiên</title>  
+    <style>  
+        body {  
+            font-family: Arial, sans-serif;  
+            margin: 20px;  
+        }  
+        #primeNumbers {  
+            margin-top: 20px;  
+            font-size: 18px;  
+        }  
+    </style>  
+</head>  
+<body>  
+    <h1>20 Số Nguyên Tố Đầu Tiên</h1>  
+    <button onclick="displayPrimes()">Hiển Thị Số Nguyên Tố</button>  
+    <div id="primeNumbers"></div>  
+
+    <script>  
+        function isPrime(num) {  
+            if (num <= 1) return false;  
+            for (let i = 2; i <= Math.sqrt(num); i++) {  
+                if (num % i === 0) return false;  
+            }  
+            return true;  
+        }  
+
+        function displayPrimes() {  
+            const primes = [];  
+            let count = 0;  
+            let num = 2; // số nguyên tố đầu tiên  
+
+            while (count < 20) {  
+                if (isPrime(num)) {  
+                    primes.push(num);  
+                    count++;  
+                }  
+                num++;  
+            }  
+
+            document.getElementById("primeNumbers").innerText = `20 số nguyên tố đầu tiên: ${primes.join(', ')}`;  
+        }  
+    </script>  
+</body>  
+</html>  
