@@ -1,0 +1,50 @@
+<!DOCTYPE html>  
+<html lang="vi">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Menu dọc bên trái</title>  
+    <style>  
+        body {  
+            display: flex;  
+            margin: 0;  
+            font-family: Arial, sans-serif;  
+        }  
+        .menu {  
+            width: 200px;  
+            background-color: #f0f0f0;  
+            padding: 10px;  
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);  
+        }  
+        .menu a {  
+            display: block;  
+            padding: 10px;  
+            text-decoration: none;  
+            color: black;  
+        }  
+        .menu a:hover {  
+            background-color: #ddd;  
+        }  
+        .menu a.active {  
+            background-color: green;  
+            color: white;  
+        }  
+        .content {  
+            padding: 20px;  
+            flex-grow: 1;  
+        }  
+    </style>  
+</head>  
+<body>  
+    <div class="menu">  
+        <a href="#" class="active">Trang chủ</a>  
+        <a href="#">Tin tức</a>  
+        <a href="#">Liên hệ</a>  
+        <a href="#">Về chúng tôi</a>  
+    </div>  
+    <div class="content">  
+        <h1>Menu dọc bên trái</h1>  
+        <p>Đây là nội dung chính của trang web.</p>  
+    </div>  
+</body>  
+</html>  
