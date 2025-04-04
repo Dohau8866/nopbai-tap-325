@@ -1,0 +1,35 @@
+<!DOCTYPE html>  
+<html lang="vi">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Kiểm tra số chẵn</title>  
+    <script>  
+        function isEven(number) {  
+            return number % 2 === 0; // Trả về true nếu là số chẵn, ngược lại false  
+        }  
+
+        function checkNumber() {  
+            // Yêu cầu người dùng nhập vào một số nguyên  
+            let userInput = prompt("Nhập vào một số nguyên bất kỳ:");  
+            let number = parseInt(userInput); // Chuyển đổi chuỗi người dùng nhập sang số nguyên  
+
+            // Kiểm tra xem liệu đầu vào có phải là một số nguyên hay không  
+            if (isNaN(number)) {  
+                alert("Vui lòng nhập một số nguyên hợp lệ!");  
+            } else {  
+                // Hiển thị kết quả  
+                if (isEven(number)) {  
+                    alert(number + " là số chẵn.");  
+                } else {  
+                    alert(number + " không phải là số chẵn.");  
+                }  
+            }  
+        }  
+    </script>  
+</head>  
+<body>  
+    <h1>Kiểm tra Số Chẵn</h1>  
+    <button onclick="checkNumber()">Kiểm tra số</button>  
+</body>  
+</html>  

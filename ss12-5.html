@@ -1,0 +1,137 @@
+<!DOCTYPE html>  
+<html lang="vi">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Các Bài Tập Lập Trình</title>  
+    <style>  
+        body {  
+            font-family: Arial, sans-serif;  
+            margin: 20px;  
+        }  
+        .output {  
+            margin-top: 20px;  
+            border: 1px solid #ccc;  
+            padding: 10px;  
+            background-color: #f9f9f9;  
+        }  
+    </style>  
+</head>  
+<body>  
+    <h1>Các Bài Tập Lập Trình</h1>  
+
+    <h2>Bài 1: In dãy Fibonacci</h2>  
+    <input type="number" id="fibonacciInput" placeholder="Nhập số lượng số Fibonacci" min="1">  
+    <button onclick="showFibonacci()">Tính</button>  
+    <div id="fibonacciOutput" class="output"></div>  
+
+    <h2>Bài 2: Tính giai thừa của một số nguyên dương</h2>  
+    <input type="number" id="factorialInput" placeholder="Nhập số nguyên dương" min="0">  
+    <button onclick="showFactorial()">Tính</button>  
+    <div id="factorialOutput" class="output"></div>  
+
+    <h2>Bài 3: In tam giác vuông</h2>  
+    <input type="number" id="triangleInput" placeholder="Nhập số hàng" min="1">  
+    <button onclick="showRightTriangle()">Tính</button>  
+    <div id="triangleOutput" class="output"></div>  
+
+    <h2>Bài 4: In hình chữ nhật rỗng</h2>  
+    <input type="number" id="rectangleRows" placeholder="Nhập số hàng" min="1">  
+    <input type="number" id="rectangleCols" placeholder="Nhập số cột" min="1">  
+    <button onclick="showHollowRectangle()">Tính</button>  
+    <div id="rectangleOutput" class="output"></div>  
+
+    <h2>Bài 5: Tính lãi ngân hàng</h2>  
+    <input type="number" id="principalInput" placeholder="Số tiền ban đầu" min="0">  
+    <input type="number" id="rateInput" placeholder="Lãi suất hàng tháng (%)" min="0" step="0.01">  
+    <input type="number" id="timeInput" placeholder="Số tháng cho vay" min="1">  
+    <button onclick="showCompoundInterest()">Tính</button>  
+    <div id="interestOutput" class="output"></div>  
+
+    <script>  
+        // Bài 1: In dãy Fibonacci  
+        function fibonacci(n) {  
+            let fib = [0, 1];  
+            for (let i = 2; i < n; i++) {  
+                fib[i] = fib[i - 1] + fib[i - 2];  
+            }  
+            return fib.slice(0, n);  
+        }  
+
+        function showFibonacci() {  
+            const n = parseInt(document.getElementById('fibonacciInput').value);  
+            const result = fibonacci(n);  
+            document.getElementById('fibonacciOutput').innerText = "Dãy Fibonacci: " + result.join(', ');  
+        }  
+
+        // Bài 2: Tính giai thừa  
+        function factorial(n) {  
+            if (n < 0) return undefined; // Giai thừa không xác định cho số âm  
+            if (n === 0 || n === 1) return 1;  
+            let result = 1;  
+            for (let i = 2; i <= n; i++) {  
+                result *= i;  
+            }  
+            return result;  
+        }  
+
+        function showFactorial() {  
+            const n = parseInt(document.getElementById('factorialInput').value);  
+            const result = factorial(n);  
+            document.getElementById('factorialOutput').innerText = "Giai thừa của " + n + ": " + result;  
+        }  
+
+        // Bài 3: In tam giác vuông  
+        function printRightTriangle(rowCount) {  
+            let output = '';  
+            for (let i = 1; i <= rowCount; i++) {  
+                output += ' '.repeat(rowCount - i) + '*'.repeat(i) + '\n';  
+            }  
+            return output;  
+        }  
+
+        function showRightTriangle() {  
+            const rowCount = parseInt(document.getElementById('triangleInput').value);  
+            const result = printRightTriangle(rowCount);  
+            document.getElementById('triangleOutput').innerText = result;  
+        }  
+
+        // Bài 4: In hình chữ nhật rỗng  
+        function printHollowRectangle(rows, cols) {  
+            let output = '';  
+            for (let i = 0; i < rows; i++) {  
+                let row = '';  
+                for (let j = 0; j < cols; j++) {  
+                    if (i === 0 || i === rows - 1 || j === 0 || j === cols - 1) {  
+                        row += '*'; // In dấu *  
+                    } else {  
+                        row += ' '; // In dấu cách ở những vị trí bên trong  
+                    }  
+                }  
+                output += row + '\n';  
+            }  
+            return output;  
+        }  
+
+        function showHollowRectangle() {  
+            const rows = parseInt(document.getElementById('rectangleRows').value);  
+            const cols = parseInt(document.getElementById('rectangleCols').value);  
+            const result = printHollowRectangle(rows, cols);  
+            document.getElementById('rectangleOutput').innerText = result;  
+        }  
+
+        // Bài 5: Tính lãi ngân hàng  
+        function calculateCompoundInterest(principal, rate, time) {  
+            return principal * Math.pow((1 + rate / 100), time);  
+        }  
+
+        function showCompoundInterest() {  
+            const principal = parseFloat(document.getElementById('principalInput').value);  
+            const rate = parseFloat(document.getElementById('rateInput').value);  
+            const time = parseInt(document.getElementById('timeInput').value);  
+            const result = calculateCompoundInterest(principal, rate, time);  
+            document.getElementById('interestOutput').innerText = "Tổng tiền sau " + time + " tháng: " + result.toFixed(2) + " VNĐ";  
+        }  
+    </script>  
+</body>  
+</html>  

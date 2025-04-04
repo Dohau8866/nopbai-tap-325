@@ -1,0 +1,127 @@
+<!DOCTYPE html>  
+<html lang="vi">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Tất cả Bài Tập</title>  
+</head>  
+<body>  
+    <h1>Các Bài Tập JavaScript</h1>  
+    
+    <button onclick="countTo100()">Bài 1: Đếm từ 1 đến 100</button>  
+    <button onclick="checkTemperature()">Bài 2: Kiểm tra nhiệt độ</button>  
+    <button onclick="fibonacciSeries()">Bài 3: 20 số Fibonacci đầu tiên</button>  
+    <button onclick="firstFibonacciDivisibleBy5()">Bài 4: Số Fibonacci chia hết cho 5</button>  
+    <button onclick="sumFibonacci()">Bài 5: Tổng 20 số Fibonacci</button>  
+    <button onclick="sumDivisibleBy7()">Bài 6: Tổng 30 số chia hết cho 7</button>  
+    <button onclick="fizzBuzz()">Bài 7: Chương trình FizzBuzz</button>  
+    <button onclick="guessGame()">Bài 8: Game Đoán Số</button>  
+
+    <script>  
+        // Bài 1  
+        function countTo100() {  
+            for (let i = 1; i <= 100; i++) {  
+                if (i === 99) {  
+                    alert("Đã hoàn thành!");  
+                }  
+            }  
+        }  
+
+        // Bài 2  
+        function checkTemperature() {  
+            let temperature = prompt("Nhập nhiệt độ hiện tại:");  
+            temperature = parseFloat(temperature);  
+            
+            if (temperature > 100) {  
+                alert("Vui lòng giảm nhiệt độ!");  
+            } else if (temperature < 20) {  
+                alert("Vui lòng tăng nhiệt độ!");  
+            }  
+        }  
+
+        // Bài 3  
+        function fibonacciSeries() {  
+            let fibonacci = [0, 1];  
+            for (let i = 2; i < 20; i++) {  
+                fibonacci[i] = fibonacci[i - 1] + fibonacci[i - 2];  
+            }  
+            alert("20 số Fibonacci đầu tiên: " + fibonacci.join(", "));  
+        }  
+
+        // Bài 4  
+        function firstFibonacciDivisibleBy5() {  
+            let a = 0, b = 1, firstDivisibleBy5;  
+            while (true) {  
+                let next = a + b;  
+                a = b;  
+                b = next;  
+                if (b % 5 === 0) {  
+                    firstDivisibleBy5 = b;  
+                    break;  
+                }  
+            }  
+            alert("Số Fibonacci đầu tiên chia hết cho 5: " + firstDivisibleBy5);  
+        }  
+
+        // Bài 5  
+        function sumFibonacci() {  
+            let sum = 0;  
+            let fibonacci = [0, 1];  
+            for (let i = 2; i < 20; i++) {  
+                fibonacci[i] = fibonacci[i - 1] + fibonacci[i - 2];  
+            }  
+            sum = fibonacci.reduce((a, b) => a + b, 0);  
+            alert("Tổng của 20 số Fibonacci đầu tiên: " + sum);  
+        }  
+
+        // Bài 6  
+        function sumDivisibleBy7() {  
+            let sum = 0, count = 0, num = 1;  
+            while (count < 30) {  
+                if (num % 7 === 0) {  
+                    sum += num;  
+                    count++;  
+                }  
+                num++;  
+            }  
+            alert("Tổng 30 số chia hết cho 7: " + sum);  
+        }  
+
+        // Bài 7  
+        function fizzBuzz() {  
+            let result = [];  
+            for (let i = 1; i <= 100; i++) {  
+                if (i % 3 === 0 && i % 5 === 0) {  
+                    result.push("FizzBuzz");  
+                } else if (i % 3 === 0) {  
+                    result.push("Fizz");  
+                } else if (i % 5 === 0) {  
+                    result.push("Buzz");  
+                } else {  
+                    result.push(i);  
+                }  
+            }  
+            alert(result.join(", "));  
+        }  
+
+        // Bài 8  
+        function guessGame() {  
+            let min = parseInt(prompt("Nhập số nhỏ nhất:"));  
+            let max = parseInt(prompt("Nhập số lớn nhất:"));  
+            let randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;  
+            let guess;  
+
+            do {  
+                guess = parseInt(prompt("Nhập giá trị bạn đoán:"));  
+                if (guess === randomNumber) {  
+                    alert("Chúc mừng! Bạn đã đoán đúng.");  
+                } else if (guess > randomNumber) {  
+                    alert("Số bạn đoán lớn hơn.");  
+                } else {  
+                    alert("Số bạn đoán nhỏ hơn.");  
+                }  
+            } while (guess !== randomNumber);  
+        }  
+    </script>  
+</body>  
+</html>  

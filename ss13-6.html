@@ -1,0 +1,31 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Count Occurrences in Array</title>  
+    <script>  
+        function countOccurrences() {  
+            // Declare an array with random integers between 1 and 100  
+            let arraySize = Math.floor(Math.random() * (20 - 10 + 1)) + 10; // Random size between 10 and 20  
+            let arr = Array.from({ length: arraySize }, () => Math.floor(Math.random() * 100) + 1);  
+            let valueToCheck = parseInt(document.getElementById("inputValue").value);  
+
+            // Count occurrences of valueToCheck in the array  
+            let count = arr.filter(num => num === valueToCheck).length;  
+
+            // Display results  
+            document.getElementById("result").innerHTML = `  
+                Generated Array: [${arr.join(', ')}] <br>  
+                The number ${valueToCheck} appears ${count} time(s) in the array.  
+            `;  
+        }  
+    </script>  
+</head>  
+<body>  
+    <h1>Count Occurrences in Integer Array</h1>  
+    <button onclick="countOccurrences()">Generate Array and Count</button>  
+    <input type="number" id="inputValue" placeholder="Enter an integer to check" required>  
+    <div id="result"></div>  
+</body>  
+</html>  

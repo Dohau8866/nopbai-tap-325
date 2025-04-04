@@ -1,0 +1,29 @@
+<!DOCTYPE html>  
+<html lang="vi">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Tính Tổng Hai Số</title>  
+    <script>  
+        function sum(a, b) {  
+            return a + b;  
+        }  
+
+        function displaySum() {  
+            // Lấy hai số từ người dùng  
+            let number1 = parseFloat(prompt("Nhập vào số thứ nhất:"));  
+            let number2 = parseFloat(prompt("Nhập vào số thứ hai:"));  
+
+            // Tính tổng  
+            let total = sum(number1, number2);  
+            
+            // Hiển thị tổng lên màn hình  
+            alert("Tổng của hai số là: " + total);  
+        }  
+    </script>  
+</head>  
+<body>  
+    <h1>Tính Tổng Hai Số</h1>  
+    <button onclick="displaySum()">Tính Tổng</button>  
+</body>  
+</html>  

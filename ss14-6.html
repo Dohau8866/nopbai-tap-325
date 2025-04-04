@@ -1,0 +1,109 @@
+<!DOCTYPE html>  
+<html lang="vi">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Quản lý sách</title>  
+</head>  
+<body>  
+    <h1>Quản lý sách</h1>  
+
+    <h2>Thêm sách mới</h2>  
+    <label for="bookId">ID sách:</label>  
+    <input type="number" id="bookId" placeholder="Nhập ID sách" required>  
+    
+    <label for="bookName">Tên sách:</label>  
+    <input type="text" id="bookName" placeholder="Nhập tên sách" required>  
+    
+    <label for="author">Tác giả:</label>  
+    <input type="text" id="author" placeholder="Nhập tác giả" required>  
+    
+    <label for="year">Năm xuất bản:</label>  
+    <input type="number" id="year" placeholder="Nhập năm xuất bản" required>  
+
+    <button onclick="addBook()">Thêm sách vào danh sách</button>  
+
+    <h2>Hiển thị danh sách sách</h2>  
+    <button onclick="showBooks()">Hiển thị danh sách</button>  
+
+    <h2>Tìm kiếm sách theo tên</h2>  
+    <label for="searchKeyword">Nhập từ khóa tìm kiếm:</label>  
+    <input type="text" id="searchKeyword" placeholder="Tìm tên sách">  
+    <button onclick="searchBooks()">Tìm kiếm</button>  
+
+    <h2>Xóa sách theo ID</h2>  
+    <label for="deleteId">Nhập ID của sách cần xóa:</label>  
+    <input type="number" id="deleteId" placeholder="Nhập ID sách cần xóa">  
+    <button onclick="deleteBook()">Xóa sách</button>  
+
+    <h2>Thoát chương trình</h2>  
+    <button onclick="exitProgram()">Thoát</button>  
+
+    <div id="message"></div>  
+
+    <script>  
+        let books = [];  
+
+        function addBook() {  
+            const id = document.getElementById('bookId').value;  
+            const name = document.getElementById('bookName').value;  
+            const author = document.getElementById('author').value;  
+            const year = document.getElementById('year').value;  
+
+            if (id && name && author && year) {  
+                books.push({ id, name, author, year });  
+                document.getElementById('message').innerText = "Sách đã được thêm thành công.";  
+                clearInputs();  
+            } else {  
+                document.getElementById('message').innerText = "Vui lòng nhập đầy đủ thông tin sách.";  
+            }  
+        }  
+
+        function showBooks() {  
+            const bookList = books.map(book => `ID: ${book.id}, Tên: ${book.name}, Tác giả: ${book.author}, Năm: ${book.year}`).join('\n');  
+            if (bookList) {  
+                alert("Danh sách sách:\n" + bookList);  
+            } else {  
+                alert("Chưa có sách nào trong danh sách.");  
+            }  
+        }  
+
+        function searchBooks() {  
+            const keyword = document.getElementById('searchKeyword').value.toLowerCase();  
+            const results = books.filter(book => book.name.toLowerCase().includes(keyword));  
+            if (results.length) {  
+                const resultList = results.map(book => `ID: ${book.id}, Tên: ${book.name}, Tác giả: ${book.author}, Năm: ${book.year}`).join('\n');  
+                alert("Kết quả tìm kiếm:\n" + resultList);  
+            } else {  
+                document.getElementById('message').innerText = "Không tìm thấy sách nào với từ khóa này.";  
+            }  
+        }  
+
+        function deleteBook() {  
+            const idToDelete = document.getElementById('deleteId').value;  
+            const index = books.findIndex(book => book.id == idToDelete);  
+            if (index !== -1) {  
+                books.splice(index, 1);  
+                document.getElementById('message').innerText = "Xóa sách thành công.";  
+            } else {  
+                document.getElementById('message').innerText = "Sách không tồn tại.";  
+            }  
+        }  
+
+        function clearInputs() {  
+            document.getElementById('bookId').value = '';  
+            document.getElementById('bookName').value = '';  
+            document.getElementById('author').value = '';  
+            document.getElementById('year').value = '';  
+            document.getElementById('searchKeyword').value = '';  
+            document.getElementById('deleteId').value = '';  
+        }  
+
+        function exitProgram() {  
+            if (confirm("Bạn có chắc chắn muốn thoát chương trình?")) {  
+                window.close();  
+            }  
+        }  
+    </script>  
+</body>  
+</html>  

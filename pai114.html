@@ -1,0 +1,20 @@
+<!DOCTYPE html>  
+<html lang="vi">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Hiển thị số</title>  
+</head>  
+<body>  
+    <h1>Kết quả:</h1>  
+    <div id="result"></div>  
+
+    <script>  
+        let resultDiv = document.getElementById('result'); // Lấy phần tử HTML để hiển thị kết quả  
+
+        for (let N = 0; N <= 5; N++) { // Vòng lặp từ 0 đến 5  
+            resultDiv.innerHTML += `The number is ${N}<br>`; // Hiển thị chuỗi  
+        }  
+    </script>  
+</body>  
+</html>  

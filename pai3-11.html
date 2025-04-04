@@ -1,0 +1,47 @@
+<!DOCTYPE html>  
+<html lang="vi">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Ứng Dụng Đọc Số</title>  
+    <style>  
+        body {  
+            font-family: Arial, sans-serif;  
+            margin: 20px;  
+        }  
+        input {  
+            padding: 10px;  
+            margin: 10px 0;  
+            width: 50%;  
+        }  
+        button {  
+            padding: 10px;  
+            cursor: pointer;  
+        }  
+        .result {  
+            margin-top: 20px;  
+            font-weight: bold;  
+        }  
+    </style>  
+</head>  
+<body>  
+    <h1>Đọc Số từ 0 đến 9</h1>  
+    <label for="numberInput">Nhập số (0 - 9):</label>  
+    <input type="number" id="numberInput" min="0" max="9">  
+    <button onclick="readNumber()">Đọc Số</button>  
+    <div class="result" id="result"></div>  
+
+    <script>  
+        function readNumber() {  
+            const number = document.getElementById('numberInput').value;  
+            const readings = ['Không', 'Một', 'Hai', 'Ba', 'Bốn', 'Năm', 'Sáu', 'Bảy', 'Tám', 'Chín'];  
+            
+            if (number >= 0 && number <= 9) {  
+                document.getElementById('result').innerText = 'Cách đọc: ' + readings[number];  
+            } else {  
+                document.getElementById('result').innerText = 'Xin vui lòng nhập số từ 0 đến 9.';  
+            }  
+        }  
+    </script>  
+</body>  
+</html>  

@@ -1,0 +1,32 @@
+function isLeapYear(year) {  
+    if (year % 4 === 0) {  
+        if (year % 100 === 0) {  
+            if (year % 400 === 0) {  
+                return true; // Năm nhuận  
+            } else {  
+                return false; // Không phải năm nhuận  
+            }  
+        } else {  
+            return true; // Năm nhuận  
+        }  
+    } else {  
+        return false; // Không phải năm nhuận  
+    }  
+}  
+
+function checkYear() {  
+    const year = parseInt(prompt("Nhập vào năm (ví dụ: 2024): "), 10);  
+    if (isNaN(year)) {  
+        alert("Vui lòng nhập một số hợp lệ.");  
+        return;  
+    }  
+    
+    if (isLeapYear(year)) {  
+        alert(`Năm ${year} là năm nhuận.`);  
+    } else {  
+        alert(`Năm ${year} không phải là năm nhuận.`);  
+    }  
+}  
+
+// Gọi hàm để kiểm tra năm  
+checkYear();  

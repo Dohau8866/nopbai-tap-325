@@ -1,0 +1,27 @@
+<!DOCTYPE html>  
+<html lang="vi">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Đảo ngược dãy số</title>  
+    <script>  
+        function reverseArray() {  
+            // Lấy giá trị từ ô input  
+            const input = document.getElementById("numberInput").value;  
+            // Chuyển đổi chuỗi thành mảng  
+            const numberArray = input.split(",").map(num => num.trim());  
+            // Đảo ngược mảng  
+            const reversedArray = numberArray.reverse();  
+            // Hiển thị kết quả  
+            document.getElementById("result").innerText = "Dãy số đảo ngược: " + reversedArray.join(", ");  
+        }  
+    </script>  
+</head>  
+<body>  
+    <h1>Nhập dãy số</h1>  
+    <input type="text" id="numberInput" placeholder="Nhập số cách nhau bởi dấu phẩy" />  
+    <button onclick="reverseArray()">Đảo ngược dãy số</button>  
+    
+    <h2 id="result"></h2>  
+</body>  
+</html>  

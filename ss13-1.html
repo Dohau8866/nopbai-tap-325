@@ -1,0 +1,30 @@
+<!DOCTYPE html>  
+<html lang="vi">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Tạo Mảng Ngẫu Nhiên</title>  
+</head>  
+<body>  
+    <h1>Mảng Ngẫu Nhiên</h1>  
+    <div id="output"></div>  
+
+    <script>  
+        // Khởi tạo mảng rỗng  
+        let array = [];  
+
+        // Hàm để tạo ra một số ngẫu nhiên  
+        function getRandomNumber() {  
+            return Math.floor(Math.random() * 100); // Tạo số ngẫu nhiên từ 0 đến 99  
+        }  
+
+        // Thêm 10 phần tử ngẫu nhiên vào mảng  
+        while (array.length < 10) {  
+            array.push(getRandomNumber());  
+        }  
+
+        // Hiển thị mảng ra màn hình  
+        document.getElementById('output').innerHTML = array.join(', ');  
+    </script>  
+</body>  
+</html>  

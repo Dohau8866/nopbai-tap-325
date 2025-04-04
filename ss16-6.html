@@ -1,0 +1,28 @@
+<!DOCTYPE html>  
+<html lang="vi">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Tính tổng mảng</title>  
+</head>  
+<body>  
+    <h1>Tính tổng các phần tử trong mảng</h1>  
+
+    <script>  
+        // Hàm tính tổng các phần tử trong mảng  
+        function tinhTong(arr) {  
+            return arr.reduce((tong, phanTu) => tong + phanTu, 0);  
+        }  
+
+        // Các mảng ví dụ  
+        const mang1 = [1, 2, 3, 4, 5];  
+        const mang2 = [10, 20, 30];  
+        const mang3 = [-1, -2, -3, -4];  
+
+        // Tính tổng và in kết quả  
+        console.log("Tổng mảng 1:", tinhTong(mang1)); // Kết quả: 15  
+        console.log("Tổng mảng 2:", tinhTong(mang2)); // Kết quả: 60  
+        console.log("Tổng mảng 3:", tinhTong(mang3)); // Kết quả: -10  
+    </script>  
+</body>  
+</html>  

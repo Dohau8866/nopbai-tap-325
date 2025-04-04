@@ -1,0 +1,31 @@
+<!DOCTYPE html>  
+<html lang="vi">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Bài 8</title>  
+</head>  
+<body>  
+    <button onclick="playGame()">Chơi</button>  
+
+    <script>  
+        function playGame() {  
+            let min = parseInt(prompt("Nhập số nhỏ nhất:"));  
+            let max = parseInt(prompt("Nhập số lớn nhất:"));  
+            let randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;  
+            let guess;  
+
+            do {  
+                guess = parseInt(prompt("Nhập giá trị bạn đoán:"));  
+                if (guess === randomNumber) {  
+                    alert("Chúc mừng! Bạn đã đoán đúng.");  
+                } else if (guess > randomNumber) {  
+                    alert("Số bạn đoán lớn hơn.");  
+                } else {  
+                    alert("Số bạn đoán nhỏ hơn.");  
+                }  
+            } while (guess !== randomNumber);  
+        }  
+    </script>  
+</body>  
+</html>  

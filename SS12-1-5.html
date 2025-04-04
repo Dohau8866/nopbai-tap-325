@@ -1,0 +1,34 @@
+<!DOCTYPE html>  
+<html lang="vi">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Bài 5</title>  
+    <script>  
+        function rankStudent() {  
+            const testScore = parseFloat(prompt("Nhập điểm bài kiểm tra:"));  
+            const midTermScore = parseFloat(prompt("Nhập điểm thi giữa kỳ:"));  
+            const finalScore = parseFloat(prompt("Nhập điểm thi cuối kỳ:"));  
+            const average = (testScore + midTermScore + finalScore) / 3;  
+
+            let ranking;  
+            if (average >= 8) {  
+                ranking = "Xuất Sắc";  
+            } else if (average >= 7) {  
+                ranking = "Giỏi";  
+            } else if (average >= 5) {  
+                ranking = "Khá";  
+            } else if (average >= 3) {  
+                ranking = "Trung Bình";  
+            } else {  
+                ranking = "Yếu";  
+            }  
+
+            alert("Học lực của học sinh là: " + ranking);  
+        }  
+    </script>  
+</head>  
+<body>  
+    <button onclick="rankStudent()">Xếp hạng học lực</button>  
+</body>  
+</html>  

@@ -1,0 +1,29 @@
+<!DOCTYPE html>  
+<html lang="vi">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Tìm số lớn nhất</title>  
+</head>  
+<body>  
+    <h1>Tìm số lớn nhất trong dãy số</h1>  
+    <input type="text" id="numberInput" placeholder="Nhập dãy số, cách nhau bởi dấu phẩy">  
+    <button onclick="findMax()">Tìm số lớn nhất</button>  
+
+    <script>  
+        function findMax() {  
+            // Lấy giá trị từ input  
+            const input = document.getElementById('numberInput').value;  
+            
+            // Chuyển đổi chuỗi thành mảng số  
+            const numbers = input.split(',').map(Number);  
+            
+            // Tìm số lớn nhất trong mảng  
+            const maxNumber = Math.max(...numbers);  
+            
+            // Hiển thị kết quả  
+            alert('Số lớn nhất là: ' + maxNumber);  
+        }  
+    </script>  
+</body>  
+</html>  

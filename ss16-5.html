@@ -1,0 +1,35 @@
+<!DOCTYPE html>  
+<html lang="vi">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Kiểm Tra Chuỗi Đối Xứng</title>  
+</head>  
+<body>  
+    <h1>Kiểm Tra Chuỗi Đối Xứng</h1>  
+    <button onclick="checkPalindrome()">Kiểm Tra</button>  
+
+    <script>  
+        function isPalindrome(str) {  
+            // Xóa khoảng trắng và chuyển đổi chuỗi về chữ thường  
+            const cleanedStr = str.replace(/\s+/g, '').toLowerCase();  
+            const reversedStr = cleanedStr.split('').reverse().join('');  
+            return cleanedStr === reversedStr;  
+        }  
+
+        function checkPalindrome() {  
+            const userInput = prompt("Nhập vào chuỗi ký tự:");  
+
+            if (userInput) {  
+                if (isPalindrome(userInput)) {  
+                    alert("Chuỗi bạn nhập là chuỗi đối xứng.");  
+                } else {  
+                    alert("Chuỗi bạn nhập không phải là chuỗi đối xứng.");  
+                }  
+            } else {  
+                alert("Bạn chưa nhập chuỗi nào.");  
+            }  
+        }  
+    </script>  
+</body>  
+</html>  

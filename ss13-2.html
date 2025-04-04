@@ -1,0 +1,32 @@
+<!DOCTYPE html>  
+<html lang="vi">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Kiểm Tra Số</title>  
+</head>  
+<body>  
+    <h1>Kiểm Tra Số</h1>  
+    <p>Vui lòng nhập một số:</p>  
+    <input type="number" id="userNumber" placeholder="Nhập số ở đây">  
+    <button onclick="checkNumber()">Kiểm Tra</button>  
+
+    <script>  
+        // Tạo mảng số có sẵn  
+        const numbersArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];  
+
+        function checkNumber() {  
+            // Lấy giá trị người dùng nhập vào  
+            const userInput = document.getElementById('userNumber').value;  
+            const userNumber = Number(userInput); // Chuyển đổi thành số  
+
+            // Kiểm tra số có trong mảng hay không  
+            if (numbersArray.includes(userNumber)) {  
+                alert("Bingo");  
+            } else {  
+                alert("Chúc bạn may mắn lần sau");  
+            }  
+        }  
+    </script>  
+</body>  
+</html>  

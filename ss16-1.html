@@ -1,0 +1,35 @@
+<!DOCTYPE html>  
+<html lang="vi">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Confirm Function Example</title>  
+    <script>  
+        function processConfirm() {  
+            // Sử dụng hàm confirm để nhận đầu vào từ người dùng  
+            var answer = confirm("Bạn có muốn chơi cờ vua không?");  
+
+            // Tạo biến result để lưu thông điệp dựa trên lựa chọn của người dùng  
+            var result;  
+            if (answer) {  
+                result = "Xuất sắc! Chúng ta sẽ chơi một trận cờ vua.";  
+            } else {  
+                result = "Có lẽ sẽ chơi sau.";  
+            }  
+
+            // Trả về kết quả  
+            return result;  
+        }  
+
+        function showResult() {  
+            // Gọi hàm processConfirm và hiển thị kết quả  
+            var message = processConfirm();  
+            alert(message); // Hiển thị kết quả trong hộp thoại  
+        }  
+    </script>  
+</head>  
+<body>  
+    <h1>Chào mừng đến với trò chơi cờ vua!</h1>  
+    <button onclick="showResult()">Chơi ngay</button> <!-- Nút để bắt đầu xác nhận -->  
+</body>  
+</html>  

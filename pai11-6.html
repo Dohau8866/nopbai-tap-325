@@ -1,0 +1,51 @@
+<!DOCTYPE html>  
+<html lang="vi">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Calculator</title>  
+    <script>  
+        function calculate() {  
+            // Nhập hai số a và b  
+            var a = parseFloat(prompt("Nhập số a:"));  
+            var b = parseFloat(prompt("Nhập số b:"));  
+
+            // Nhập phép tính  
+            var operation = prompt("Nhập phép tính (+, -, *, /):");  
+
+            var result;  
+
+            // Thực hiện phép toán dựa trên lựa chọn  
+            switch (operation) {  
+                case '+':  
+                    result = a + b;  
+                    break;  
+                case '-':  
+                    result = a - b;  
+                    break;  
+                case '*':  
+                    result = a * b;  
+                    break;  
+                case '/':  
+                    if(b !== 0) {  
+                        result = a / b;  
+                    } else {  
+                        alert("Lỗi: Không thể chia cho 0.");  
+                        return;  
+                    }  
+                    break;  
+                default:  
+                    alert("Phép toán không hợp lệ.");  
+                    return;  
+            }  
+
+            // Hiển thị kết quả  
+            alert("Kết quả: " + result);  
+        }  
+    </script>  
+</head>  
+<body>  
+    <h1>Máy Tính Đơn Giản</h1>  
+    <button onclick="calculate()">Tính Toán</button>  
+</body>  
+</html>  

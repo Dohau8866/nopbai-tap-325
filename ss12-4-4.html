@@ -1,0 +1,23 @@
+<!DOCTYPE html>  
+<html lang="vi">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Bài 4</title>  
+</head>  
+<body>  
+    <script>  
+        let a = 0, b = 1, firstDivisibleBy5;  
+        while (true) {  
+            let next = a + b;  
+            a = b;  
+            b = next;  
+            if (b % 5 === 0) {  
+                firstDivisibleBy5 = b;  
+                break;  
+            }  
+        }  
+        console.log(firstDivisibleBy5);  
+    </script>  
+</body>  
+</html>  

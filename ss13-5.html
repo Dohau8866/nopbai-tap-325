@@ -1,0 +1,36 @@
+<!DOCTYPE html>  
+<html lang="vi">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Tính Tổng Số Lẻ và Chẵn</title>  
+    <script>  
+        function calculateSums() {  
+            // Tạo mảng với số lượng từ 10 đến 20 phần tử ngẫu nhiên  
+            const numberCount = Math.floor(Math.random() * (20 - 10 + 1)) + 10; // Số phần tử từ 10 đến 20  
+            const numbers = Array.from({length: numberCount}, () => Math.floor(Math.random() * 100)); // Số ngẫu nhiên từ 0 đến 99  
+
+            // Tính tổng các số lẻ và chẵn  
+            let oddSum = 0;  
+            let evenSum = 0;  
+
+            for (const number of numbers) {  
+                if (number % 2 === 0) {  
+                    evenSum += number; // Số chẵn  
+                } else {  
+                    oddSum += number; // Số lẻ  
+                }  
+            }  
+
+            // Hiển thị kết quả  
+            alert(`Mảng số: ${numbers.join(", ")}`);  
+            alert(`Tổng số lẻ: ${oddSum}`);  
+            alert(`Tổng số chẵn: ${evenSum}`);  
+        }  
+    </script>  
+</head>  
+<body>  
+    <h1>Tính Tổng Số Lẻ và Số Chẵn</h1>  
+    <button onclick="calculateSums()">Tính Toán</button>  
+</body>  
+</html>  
