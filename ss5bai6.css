@@ -1,0 +1,41 @@
+body {  
+    font-family: Arial, sans-serif;  
+    margin: 0;  
+    padding: 0;  
+}  
+
+.container {  
+    display: flex;  
+}  
+
+.sidebar {  
+    background-color: #f0f0f0;  
+    padding: 20px;  
+    width: 250px;  
+}  
+
+.sidebar h2 {  
+    color: green;  
+}  
+
+.sidebar ul {  
+    list-style-type: none;  
+    padding: 0;  
+}  
+
+.sidebar ul li {  
+    margin: 15px 0;  
+}  
+
+.main-content {  
+    padding: 20px;  
+    flex-grow: 1;  
+}  
+
+h1 {  
+    font-size: 24px;  
+}  
+
+p {  
+    font-size: 18px;  
+}  

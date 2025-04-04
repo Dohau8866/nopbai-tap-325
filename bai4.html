@@ -3,34 +3,48 @@
 <head>  
     <meta charset="UTF-8">  
     <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-    <title>Trang Chủ</title>  
+    <title>Đăng nhập</title>  
     <style>  
         body {  
             font-family: Arial, sans-serif;  
-            margin: 20px;  
         }  
-        ol {  
-            list-style-type: decimal;  
+        .container {  
+            width: 300px;  
+            margin: 50px auto;  
         }  
-        a {  
-            color: purple;  
-            text-decoration: none;  
+        label {  
+            display: block;  
+            margin-bottom: 5px;  
         }  
-        a:hover {  
-            text-decoration: underline;  
-        }  <h1>Đây là tiêu đề trang giới thiệu</h1>  
-        <p>Đây là nội dung trang giới thiệu</p>  
+        input[type="text"],  
+        input[type="password"] {  
+            width: 100%;  
+            padding: 8px;  
+            margin-bottom: 10px;  
+            border: 1px solid #ccc;  
+            border-radius: 4px;  
+        }  
+        button {  
+            background-color: #f2f2f2;  
+            color: black;  
+            padding: 10px 15px;  
+            border: 1px solid #ccc;  
+            border-radius: 4px;  
+            cursor: pointer;  
+        }  
     </style>  
 </head>  
 <body>  
-    <ol>  <h1>Đây là tiêu đề trang liên hệ</h1>  
-        <p>Đây là nội dung trang liên hệ</p>  
-        <li><a href="index.html">Trang Chủ</a></li>  
-        <li><a href="about.html">Giới Thiệu</a></li>  
-        <li><a href="contact.html">Liên Hệ</a></li>  
-    </ol>  
+    <div class="container">  
+        <form>  
+            <label for="username">Tên đăng nhập:</label>  
+            <input type="text" id="username" name="username">  
 
-    <h1>Đây là tiêu đề trang chủ</h1>  
-    <p>Đây là nội dung trang chủ</p>  
+            <label for="password">Mật khẩu:</label>  
+            <input type="password" id="password" name="password">  
+
+            <button type="submit">Đăng nhập</button>  
+        </form>  
+    </div>  
 </body>  
 </html>  
