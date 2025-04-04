@@ -1,0 +1,69 @@
+body {  
+    margin: 0;  
+    font-family: Arial, sans-serif;  
+    background-color: #1a1a1a;  
+    color: white;  
+}  
+
+header {  
+    background-color: #000;  
+    padding: 20px;  
+    text-align: center;  
+}  
+
+.logo {  
+    font-size: 24px;  
+    font-weight: bold;  
+}  
+
+.main {  
+    display: flex;  
+}  
+
+.hero {  
+    flex: 1;  
+    padding: 50px;  
+    text-align: center;  
+}  
+
+.highlight {  
+    color: #ff6f61; /* Màu nổi bật cho từ 'website' */  
+}  
+
+.buttons {  
+    margin: 20px 0;  
+}  
+
+.button {  
+    background-color: #ff6f61;  
+    color: white;  
+    padding: 15px 30px;  
+    border: none;  
+    cursor: pointer;  
+    border-radius: 5px;  
+    text-decoration: none;  
+    margin: 0 10px;  
+}  
+
+.button:hover {  
+    background-color: #ff4c3b;  
+}  
+
+.image-container {  
+    margin: 20px 0;  
+}  
+
+img {  
+    max-width: 100%;  
+    height: auto;  
+}  
+
+aside {  
+    background-color: #333;  
+    padding: 20px;  
+    width: 300px;  
+}  
+
+.sidebar-button {  
+    margin-top: 20px;  
+}  
