@@ -1,0 +1,85 @@
+<!DOCTYPE html>  
+<html lang="vi">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Bàn phím ảo</title>  
+    <style>  
+        body {  
+            font-family: Arial, sans-serif;  
+            text-align: center;  
+            padding: 50px;  
+        }  
+        #keyboard {  
+            margin: 20px auto;  
+            display: grid;  
+            grid-template-columns: repeat(10, 1fr);  
+            gap: 10px;  
+        }  
+        .key {  
+            padding: 15px;  
+            background-color: #007bff;  
+            color: white;  
+            border: none;  
+            border-radius: 5px;  
+            cursor: pointer;  
+            font-size: 18px;  
+            transition: background-color 0.3s;  
+        }  
+        .key:hover {  
+            background-color: #0056b3;  
+        }  
+        #output {  
+            width: 300px;  
+            height: 100px;  
+            font-size: 24px;  
+        }  
+    </style>  
+</head>  
+<body>  
+
+    <h1>Bàn phím ảo</h1>  
+    <textarea id="output" placeholder="Nhấn phím để nhập chữ..." readonly></textarea>  
+    <div id="keyboard">  
+        <button class="key">A</button>  
+        <button class="key">B</button>  
+        <button class="key">C</button>  
+        <button class="key">D</button>  
+        <button class="key">E</button>  
+        <button class="key">F</button>  
+        <button class="key">G</button>  
+        <button class="key">H</button>  
+        <button class="key">I</button>  
+        <button class="key">J</button>  
+        <button class="key">K</button>  
+        <button class="key">L</button>  
+        <button class="key">M</button>  
+        <button class="key">N</button>  
+        <button class="key">O</button>  
+        <button class="key">P</button>  
+        <button class="key">Q</button>  
+        <button class="key">R</button>  
+        <button class="key">S</button>  
+        <button class="key">T</button>  
+        <button class="key">U</button>  
+        <button class="key">V</button>  
+        <button class="key">W</button>  
+        <button class="key">X</button>  
+        <button class="key">Y</button>  
+        <button class="key">Z</button>  
+        <button class="key">☠️</button> <!-- Thêm một phím tắt -->  
+    </div>  
+
+    <script>  
+        const keys = document.querySelectorAll('.key');  
+        const output = document.getElementById('output');  
+
+        keys.forEach(key => {  
+            key.addEventListener('click', () => {  
+                output.value += key.innerText; // Thêm chữ vào textarea  
+            });  
+        });  
+    </script>  
+
+</body>  
+</html>  

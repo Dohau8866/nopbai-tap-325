@@ -1,0 +1,98 @@
+<!DOCTYPE html>  
+<html lang="vi">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Đăng Ký Tài Khoản</title>  
+    <style>  
+        body {  
+            font-family: Arial, sans-serif;  
+            background-color: #f4f4f4;  
+            display: flex;  
+            align-items: center;  
+            justify-content: center;  
+            height: 100vh;  
+            margin: 0;  
+        }  
+        .container {  
+            background: #fff;  
+            padding: 20px;  
+            border-radius: 5px;  
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);  
+        }  
+        h2 {  
+            text-align: center;  
+        }  
+        input[type="email"],  
+        input[type="password"] {  
+            width: 100%;  
+            padding: 10px;  
+            margin: 10px 0;  
+            border-radius: 5px;  
+            border: 1px solid #ccc;  
+        }  
+        button {  
+            width: 100%;  
+            padding: 10px;  
+            border: none;  
+            border-radius: 5px;  
+            background-color: #28a745;  
+            color: white;  
+            font-size: 16px;  
+        }  
+        .message {  
+            color: red;  
+            text-align: center;  
+        }  
+    </style>  
+</head>  
+<body>  
+
+<div class="container">  
+    <h2>Đăng Ký Tài Khoản</h2>  
+    <form id="signupForm">  
+        <input type="email" id="email" placeholder="Email" required>  
+        <input type="password" id="password" placeholder="Mật khẩu" required>  
+        <input type="password" id="confirmPassword" placeholder="Xác nhận mật khẩu" required>  
+        <button type="submit">Đăng Ký</button>  
+        <div class="message" id="message"></div>  
+    </form>  
+</div>  
+
+<script>  
+    document.getElementById('signupForm').addEventListener('submit', function(event) {  
+        event.preventDefault();  
+        
+        const email = document.getElementById('email').value;  
+        const password = document.getElementById('password').value;  
+        const confirmPassword = document.getElementById('confirmPassword').value;  
+        const message = document.getElementById('message');  
+        
+        // Kiểm tra sự hợp lệ thông tin  
+        if (!email || !password) {  
+            message.textContent = 'Email và mật khẩu không được bỏ trống.';  
+            return;  
+        }  
+        
+        if (password !== confirmPassword) {  
+            message.textContent = 'Xác nhận mật khẩu không khớp.';  
+            return;  
+        }  
+        
+        // Kiểm tra sự tồn tại của email (ví dụ: một mảng giả lập)  
+        const existingEmails = ['test@example.com', 'user@example.com'];  
+
+        if (existingEmails.includes(email)) {  
+            message.textContent = 'Email đã tồn tại.';  
+            return;  
+        }  
+
+        // Lưu tài khoản vừa tạo thành công  
+        message.style.color = 'green';  
+        message.textContent = 'Tài khoản đã được tạo thành công.';  
+        // Ở đây có thể gọi một hàm để gửi dữ liệu đến server  
+    });  
+</script>  
+
+</body>  
+</html>  

@@ -1,0 +1,127 @@
+<!DOCTYPE html>  
+<html lang="vi">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Máy Tính Đơn Giản</title>  
+    <style>  
+        body {  
+            font-family: Arial, sans-serif;  
+            text-align: center;  
+            margin-top: 50px;  
+        }  
+        #calculator {  
+            display: inline-block;  
+            border: 1px solid #ccc;  
+            padding: 20px;  
+            border-radius: 10px;  
+        }  
+        #display {  
+            width: 200px;  
+            height: 40px;  
+            font-size: 24px;  
+            text-align: right;  
+            margin-bottom: 10px;  
+        }  
+        button {  
+            width: 50px;  
+            height: 50px;  
+            font-size: 20px;  
+            margin: 5px;  
+        }  
+    </style>  
+</head>  
+<body>  
+    <div id="calculator">  
+        <input type="text" id="display" disabled>  
+        <br>  
+        <button onclick="press('7')">7</button>  
+        <button onclick="press('8')">8</button>  
+        <button onclick="press('9')">9</button>  
+        <button onclick="operation('+')">+</button>  
+        <br>  
+        <button onclick="press('4')">4</button>  
+        <button onclick="press('5')">5</button>  
+        <button onclick="press('6')">6</button>  
+        <button onclick="operation('-')">-</button>  
+        <br>  
+        <button onclick="press('1')">1</button>  
+        <button onclick="press('2')">2</button>  
+        <button onclick="press('3')">3</button>  
+        <button onclick="operation('*')">*</button>  
+        <br>  
+        <button onclick="press('0')">0</button>  
+        <button onclick="calculate()">=</button>  
+        <button onclick="operation('/')">/</button>  
+        <button onclick="clearDisplay()">C</button>  
+    </div>  
+
+    <script>  
+        let currentInput = '';  
+        let operator = null;  
+        let previousInput = '';  
+
+        function press(num) {  
+            currentInput += num;  
+            updateDisplay(currentInput);  
+        }  
+
+        function operation(op) {  
+            if (currentInput === '') return; // Nếu không có số nào, không thực hiện  
+            if (operator !== null) {  
+                calculate(); // Tính toán nếu đã có phép toán  
+            }  
+            operator = op; // Lưu phép toán  
+            previousInput = currentInput; // Cập nhật số trước  
+            currentInput = ''; // Reset input hiện tại  
+        }  
+
+        function calculate() {  
+            let result;  
+
+            const prev = parseFloat(previousInput);  
+            const current = parseFloat(currentInput);  
+
+            if (isNaN(prev) || isNaN(current)) return; // Kiểm tra đầu vào hợp lệ  
+
+            switch (operator) {  
+                case '+':  
+                    result = prev + current;  
+                    break;  
+                case '-':  
+                    result = prev - current;  
+                    break;  
+                case '*':  
+                    result = prev * current;  
+                    break;  
+                case '/':  
+                    if (current === 0) {  
+                        alert("Không thể chia cho 0!"); // Thông báo lỗi  
+                        clearDisplay();  
+                        return;  
+                    }  
+                    result = prev / current;  
+                    break;  
+                default:  
+                    return; // Nếu không có phép toán hợp lệ  
+            }  
+
+            currentInput = result; // Cập nhật số hiện tại với kết quả  
+            operator = null; // Reset phép toán  
+            previousInput = ''; // Reset số trước  
+            updateDisplay(currentInput); // Cập nhật màn hình  
+        }  
+
+        function clearDisplay() {  
+            currentInput = '';  
+            operator = null;  
+            previousInput = '';  
+            updateDisplay('');  
+        }  
+
+        function updateDisplay(value) {  
+            document.getElementById('display').value = value;  
+        }  
+    </script>  
+</body>  
+</html>  

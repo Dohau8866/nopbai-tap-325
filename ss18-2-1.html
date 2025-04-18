@@ -1,0 +1,43 @@
+<!DOCTYPE html>  
+<html lang="vi">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Bài 1: Quản lý sản phẩm</title>  
+</head>  
+<body>  
+    <h1>Bài 1: Quản lý sản phẩm</h1>  
+    <script>  
+        // Mảng sản phẩm ban đầu  
+        let products = [  
+            { id: 1, name: "Milk", count: 10 },  
+            { id: 2, name: "Butter", count: 5 },  
+            { id: 3, name: "Eggs", count: 20 }  
+        ];  
+
+        // Thêm sản phẩm mới  
+        products.push({ id: 4, name: "Cheese", count: 15 });  
+
+        // Xóa sản phẩm có id = 2  
+        products = products.filter(product => product.id !== 2);  
+
+        // Cập nhật sản phẩm có id = 3  
+        const product3 = products.find(product => product.id === 3);  
+        if (product3) {  
+            product3.count = 0;  
+        }  
+
+        // Kiểm tra từ khóa "Butter"  
+        const keyword = "Butter";  
+        const foundProducts = products.filter(product => product.name.includes(keyword));  
+        if (foundProducts.length > 0) {  
+            console.log("Thông tin sản phẩm tìm thấy:", foundProducts);  
+        } else {  
+            console.log("Không có dữ liệu bạn tìm kiếm");  
+        }  
+
+        // In mảng sản phẩm hiện tại  
+        console.log("Mảng sản phẩm hiện tại:", products);  
+    </script>  
+</body>  
+</html>  

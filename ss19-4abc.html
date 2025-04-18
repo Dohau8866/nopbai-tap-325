@@ -1,0 +1,126 @@
+<!DOCTYPE html>  
+<html lang="vi">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Todo List App</title>  
+    <style>  
+        body {  
+            font-family: Arial, sans-serif;  
+            background-color: #f4f4f4;  
+            padding: 20px;  
+            display: flex;  
+            justify-content: center;  
+        }  
+
+        .container {  
+            background: white;  
+            padding: 20px;  
+            border-radius: 5px;  
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);  
+            width: 400px;  
+        }  
+
+        h1 {  
+            text-align: center;  
+        }  
+
+        input[type="text"] {  
+            width: calc(100% - 80px);  
+            padding: 10px;  
+            border: 1px solid #ccc;  
+            border-radius: 5px;  
+        }  
+
+        button {  
+            padding: 10px;  
+            margin-left: 10px;  
+            border: none;  
+            background-color: #5cb85c;  
+            color: white;  
+            border-radius: 5px;  
+            cursor: pointer;  
+        }  
+
+        button:hover {  
+            background-color: #4cae4c;  
+        }  
+
+        ul {  
+            list-style: none;  
+            padding: 0;  
+        }  
+
+        li {  
+            display: flex;  
+            justify-content: space-between;  
+            align-items: center;  
+            padding: 10px;  
+            border-bottom: 1px solid #ccc;  
+        }  
+
+        li button {  
+            background-color: #d9534f;  
+        }  
+
+        li button:hover {  
+            background-color: #c9302c;  
+        }  
+    </style>  
+</head>  
+<body>  
+    <div class="container">  
+        <h1>Todo List</h1>  
+        <input type="text" id="todoInput" placeholder="Thêm công việc mới...">  
+        <button id="addButton">Thêm</button>  
+        <ul id="todoList"></ul>  
+    </div>  
+    <script>  
+        document.addEventListener('DOMContentLoaded', () => {  
+            const todoInput = document.getElementById('todoInput');  
+            const addButton = document.getElementById('addButton');  
+            const todoList = document.getElementById('todoList');  
+
+            // Load todos from local storage  
+            loadTodos();  
+
+            addButton.addEventListener('click', () => {  
+                const todoText = todoInput.value.trim();  
+                if (todoText) {  
+                    addTodo(todoText);  
+                    todoInput.value = '';  
+                }  
+            });  
+
+            function addTodo(text) {  
+                const li = document.createElement('li');  
+                li.textContent = text;  
+
+                const deleteButton = document.createElement('button');  
+                deleteButton.textContent = 'Xóa';  
+                deleteButton.addEventListener('click', () => {  
+                    li.remove();  
+                    saveTodos();  
+                });  
+                
+                li.appendChild(deleteButton);  
+                todoList.appendChild(li);  
+                saveTodos();  
+            }  
+
+            function loadTodos() {  
+                const todos = JSON.parse(localStorage.getItem('todos')) || [];  
+                todos.forEach(todo => addTodo(todo));  
+            }  
+
+            function saveTodos() {  
+                const todos = [];  
+                document.querySelectorAll('#todoList li').forEach(li => {  
+                    todos.push(li.textContent.replace('Xóa', '').trim());  
+                });  
+                localStorage.setItem('todos', JSON.stringify(todos));  
+            }  
+        });  
+    </script>  
+</body>  
+</html>  

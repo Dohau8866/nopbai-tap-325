@@ -1,0 +1,123 @@
+<!DOCTYPE html>  
+<html lang="vi">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Quản Lý Danh Sách Sinh Viên</title>  
+    <style>  
+        body {  
+            font-family: Arial, sans-serif;  
+            margin: 20px;  
+            padding: 20px;  
+            border: 1px solid #ccc;  
+        }  
+        table {  
+            width: 100%;  
+            border-collapse: collapse;  
+            margin-top: 20px;  
+        }  
+        table, th, td {  
+            border: 1px solid #ddd;  
+        }  
+        th, td {  
+            padding: 8px 12px;  
+            text-align: left;  
+        }  
+        th {  
+            background-color: #f2f2f2;  
+        }  
+        input[type="text"], input[type="number"] {  
+            width: 100%;  
+            padding: 8px;  
+            margin: 5px 0;  
+        }  
+    </style>  
+</head>  
+<body>  
+
+    <h1>Quản Lý Danh Sách Sinh Viên</h1>  
+    
+    <form id="studentForm">  
+        <input type="text" id="name" placeholder="Tên sinh viên" required>  
+        <input type="number" id="age" placeholder="Tuổi" required>  
+        <input type="text" id="class" placeholder="Lớp" required>  
+        <button type="submit">Thêm Sinh Viên</button>  
+    </form>  
+
+    <input type="text" id="search" placeholder="Tìm kiếm sinh viên theo tên" onkeyup="searchStudents()">  
+    
+    <table id="studentTable">  
+        <thead>  
+            <tr>  
+                <th>Tên</th>  
+                <th>Tuổi</th>  
+                <th>Lớp</th>  
+                <th>Hành động</th>  
+            </tr>  
+        </thead>  
+        <tbody>  
+        </tbody>  
+    </table>  
+
+    <script>  
+        const studentForm = document.getElementById('studentForm');  
+        const studentTable = document.getElementById('studentTable').getElementsByTagName('tbody')[0];  
+        
+        studentForm.addEventListener('submit', function(e) {  
+            e.preventDefault();  
+            const name = document.getElementById('name').value;  
+            const age = document.getElementById('age').value;  
+            const className = document.getElementById('class').value;  
+
+            addStudent(name, age, className);  
+            studentForm.reset();  
+        });  
+
+        function addStudent(name, age, className) {  
+            const row = studentTable.insertRow();  
+            row.insertCell(0).innerText = name;  
+            row.insertCell(1).innerText = age;  
+            row.insertCell(2).innerText = className;  
+
+            const actionsCell = row.insertCell(3);  
+            const editButton = document.createElement('button');  
+            editButton.innerText = 'Sửa';  
+            editButton.onclick = function() { editStudent(row, name, age, className); };  
+            actionsCell.appendChild(editButton);  
+
+            const deleteButton = document.createElement('button');  
+            deleteButton.innerText = 'Xóa';  
+            deleteButton.onclick = function() { deleteStudent(row); };  
+            actionsCell.appendChild(deleteButton);  
+        }  
+
+        function deleteStudent(row) {  
+            studentTable.deleteRow(row.rowIndex - 1);  
+        }  
+
+        function editStudent(row, name, age, className) {  
+            document.getElementById('name').value = name;  
+            document.getElementById('age').value = age;  
+            document.getElementById('class').value = className;  
+
+            deleteStudent(row);  
+        }  
+
+        function searchStudents() {  
+            const searchValue = document.getElementById('search').value.toLowerCase();  
+            const rows = studentTable.getElementsByTagName('tr');  
+            for (let row of rows) {  
+                const cells = row.getElementsByTagName('td');  
+                let found = false;  
+                for (let cell of cells) {  
+                    if (cell.innerText.toLowerCase().includes(searchValue)) {  
+                        found = true;  
+                        break;  
+                    }  
+                }  
+                row.style.display = found ? '' : 'none';  
+            }  
+        }  
+    </script>  
+</body>  
+</html>  

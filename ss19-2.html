@@ -1,0 +1,140 @@
+<!DOCTYPE html>  
+<html lang="vi">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Quản Lý Đầu Việc</title>  
+    <style>  
+        body {  
+            font-family: Arial, sans-serif;  
+            background-color: #f4f4f4;  
+            margin: 0;  
+            padding: 20px;  
+        }  
+
+        .container {  
+            max-width: 600px;  
+            margin: auto;  
+            background: white;  
+            border-radius: 5px;  
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);  
+            padding: 20px;  
+        }  
+
+        h1 {  
+            text-align: center;  
+        }  
+
+        form {  
+            display: flex;  
+            justify-content: space-between;  
+        }  
+
+        input {  
+            flex: 1;  
+            padding: 10px;  
+            border: 1px solid #ccc;  
+            border-radius: 4px;  
+        }  
+
+        button {  
+            padding: 10px 15px;  
+            border: none;  
+            background-color: #28a745;  
+            color: white;  
+            border-radius: 4px;  
+            cursor: pointer;  
+        }  
+
+        button:hover {  
+            background-color: #218838;  
+        }  
+
+        ul {  
+            list-style-type: none;  
+            padding: 0;  
+        }  
+
+        li {  
+            display: flex;  
+            justify-content: space-between;  
+            align-items: center;  
+            padding: 10px;  
+            border-bottom: 1px solid #ccc;  
+        }  
+
+        li button {  
+            background-color: #dc3545;  
+            margin-left: 5px;  
+        }  
+    </style>  
+</head>  
+<body>  
+
+<div class="container">  
+    <h1>Quản Lý Đầu Việc</h1>  
+    <form id="task-form">  
+        <input type="text" id="task-input" placeholder="Nhập tên đầu việc" required />  
+        <button type="submit">Thêm</button>  
+    </form>  
+    <ul id="task-list"></ul>  
+</div>  
+
+<script>  
+    const taskForm = document.getElementById('task-form');  
+    const taskInput = document.getElementById('task-input');  
+    const taskList = document.getElementById('task-list');  
+
+    const tasks = JSON.parse(localStorage.getItem('tasks')) || [];  
+
+    function renderTasks() {  
+        taskList.innerHTML = '';  
+        tasks.forEach((task, index) => {  
+            const li = document.createElement('li');  
+            li.innerHTML = `  
+                <span>${task}</span>  
+                <div>  
+                    <button onclick="editTask(${index})">Sửa</button>  
+                    <button onclick="deleteTask(${index})">Xóa</button>  
+                </div>  
+            `;  
+            taskList.appendChild(li);  
+        });  
+    }  
+
+    function addTask(event) {  
+        event.preventDefault();  
+        const taskText = taskInput.value;  
+        tasks.push(taskText);  
+        taskInput.value = '';  
+        updateLocalStorage();  
+        renderTasks();  
+    }  
+
+    function editTask(index) {  
+        const newTask = prompt("Cập nhật đầu việc:", tasks[index]);  
+        if (newTask) {  
+            tasks[index] = newTask;  
+            updateLocalStorage();  
+            renderTasks();  
+        }  
+    }  
+
+    function deleteTask(index) {  
+        if (confirm("Bạn có chắc chắn muốn xóa đầu việc này không?")) {  
+            tasks.splice(index, 1);  
+            updateLocalStorage();  
+            renderTasks();  
+        }  
+    }  
+
+    function updateLocalStorage() {  
+        localStorage.setItem('tasks', JSON.stringify(tasks));  
+    }  
+
+    taskForm.addEventListener('submit', addTask);  
+    document.addEventListener('DOMContentLoaded', renderTasks);  
+</script>  
+
+</body>  
+</html>  
